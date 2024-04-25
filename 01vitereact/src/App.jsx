@@ -1,7 +1,15 @@
+import Chai from "./chai"
 
 function App() {
+  const username= "Chai aur code"
   return (
-    <h1>Chai aur react with vite | Abhinav</h1>
+    // fragments
+    <>  
+      <Chai/>
+      <h1>Chai aur react {username}</h1>   
+      {/* {treats as a variable}   {evaluated javascript}  {isme koi bhi javascript nhi likh skte hai}*/}
+      <p>test para</p>
+    </>
   )
 }
 
