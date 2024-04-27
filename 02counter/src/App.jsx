@@ -11,7 +11,12 @@ function App() {
   const addValue= () =>{
     // counter=counter+1
     if(counter<20){
-      setCounter(counter+1)   //Ab ye value hr jgh update ho jaegi, react apne se DOM analyse krega aur jha jha ye value hai wha update kr dega
+      setCounter(counter+1)  //Ab kaisi hui values?
+      setCounter(counter+1) 
+      setCounter(counter+1)  //Fibre saari values ko batches me bhejta hai, To sb kaam ka ek batch bn jaega aur saare milke ek hi counter ko increase krenge to at the end aisa nhi hai ki ki individually kaam kr rhe saare, they are working together and in one batch
+      setCounter((prevCounter) => prevCounter+1)  //Ab maanlo bdhana hi hai to aise krna hai pdega setCounter ka hidden feature hai ye function le skta hai //This will give you prevCount //Callback k baad agr value aa rhi to ek batch complete hoke values aati hai thats why wo purani values hoti hai
+      setCounter(prevCounter+1) 
+      setCounter(prevCounter+1)   //Ab ye value hr jgh update ho jaegi, react apne se DOM analyse krega aur jha jha ye value hai wha update kr dega
     }
     else{
       alert("Counter exceeds 20")
