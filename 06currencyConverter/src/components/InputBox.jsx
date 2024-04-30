@@ -46,7 +46,7 @@ function InputBox({
                     
                         {currencyOptions.map( (currency) =>{   //Agr aap loop kr rhe to key ka dhyan rkhe to let React know which element to rerender
                             <option key={currency} value={currency}>
-                            usd
+                            {currency}
                             </option>
                         })}
                 
