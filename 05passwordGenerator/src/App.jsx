@@ -30,8 +30,8 @@ function App() {
 
   const copyPasswordToClipboard= useCallback(() => {
     passwordRef.current?.select()  //Effect dene k lie user ko acche se dikhe UI uske lie reference lie hai passwordRef variable se useRef ka use krk
-    passwordRef.current?.setSelectionRange(0,20);  //hr baar 3 se jyada values nhi chahie
-    window.navigator.clipboard.writeText(password)
+    passwordRef.current?.setSelectionRange(0,20);  //hr baar 3 se jyada values nhi chahie pura password nhi
+    window.navigator.clipboard.writeText(password)     //copy to clipboard
   },[password])
 
   // passwordGenerator() //Ab hm aise call nhi kr skte hai kyunki hmne useCallback lgaya hai
@@ -52,7 +52,7 @@ function App() {
         <div className='flex shadow rounded-lg overflow-hidden mb-4'> 
             <input
               type='text'
-              value={password}
+              value={password}  // state wla password hai ye
               className='outline-none w-full py-1 px-3'
               placeholder='Password'
               readOnly
@@ -72,7 +72,7 @@ function App() {
               max={100}
               value={length}
               className='cursor-pointer'
-              onChange={(e) => {setLength(e.target.value)}}
+              onChange={(e) => {setLength(e.target.value)}}    // yha pe length set kr rhe hai onChange event p
             />
             <label>Length: {length}</label>
           </div>
@@ -82,7 +82,7 @@ function App() {
                 defaultChecked={numberAllowed}
                 id="numberInput"
                 onChange={()=>{
-                    setNumberAllowed((prev)=>!prev)
+                    setNumberAllowed((prev)=>!prev)     // Numbers ko baar baar true/false set krna hoga pr hme prev value ko change krna nhi to hmesa default value hi rhega. 
                 }}
               />
               <label htmlFor='numberInput'>Numbers</label>
